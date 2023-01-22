@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Apartments.com</title>    
+    <link rel="stylesheet" href='{% static "index.css"%}' type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src='{% static "Images/logo.png"%}' alt="Logo">
+        </div>
+        <ul>
+            <li class="item"><a href="">Home</a></li>
+            {% comment %} <li class="item"><a href="#form1">Our Analysis</a></li> {% endcomment %}
+            <li class="item"><a href="#form">Know Rent</a></li>
+            <li class="item"><a href="#wines-container">World-wide Partners</a></li>
+            <li class="item"><a href="#client-section">Our Clients</a></li>
+            
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="h-primary" >A Good Family Reserves a Good "Home" </h1>
+        <p style="font-size: 30px;">A portal to check the rents around indian metropolitics. </p>
+        <ul>
+        <li class="item"><a href = "#form">Rent!</a></li>
+        </ul>
+     </section>
+
+
+   <section id="form">
+        <h2 class="h-primary center" style="font-size: 28px"> Estimate House Rent</h2>
+        <div id="form-box">
+            <form action="/" method="post">{% csrf_token %}
+                <div class="form-group">
+                    <label for = "alchohol_content">Number of BHK: </label><br>
+                    <input type="Number" name="nobhk" id="nobhk" placeholder="" step="0.01" min="0" max="1000" required="true">
+                </div>
+                <div class="form-group">
+                    <label for="malic_acid">Size of the House(in sq.m^2): </label><br>
+                    <input type="Number" name="housesize" id="housesize" placeholder="mininum-500 maximum-4000" step="0.01" min="500" max="4000" required="true">
+               </div>
+                  <div class="form-group">
+                       <div class="slct">
+                       <label for="AreaType">AreaType:</label><br>
+                       <select  name="Areatype" id="Areatype">
+                       <option type="Number" value="1">Super Area</option>
+                       <option type="Number" value="2">Carpet Area</option>
+                       <option type="Number" value="3">Built Area</option>
+                       </select>
+                       </div>
+                    </div>
+
+                <div class="form-group">
+                    <label for="alc_ash">Pincode of city: </label><br>
+                    <input type="Number" name="Pincode" id="Pincode" placeholder=" min=100000 max=860000" step="0.01" min="100000" max="860000"required="true">
+                </div>
+
+                <div class="form-group">
+                    <div class="slct">
+                        <label for="Magnesium">Furnishing Status: </label><br>
+                        <select  name="FurnishStatus" id="FurnishStatus">
+                        <option type="Number" value="0">Un-Furnished</option>
+                        <option type="Number" value="1">Semi-Furnished</option>
+                        <option type="Number" value="2">Furnished</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="slct">
+                        <label for="Phenols">Tenant Type: </label><br>
+                        <select  name="TenantType" id="TenantType">
+                        <option type="Number" value="1">Bachelors</option>
+                        <option type="Number" value="2">Bachelors/Family</option>
+                        <option type="Number" value="3">Family</option>
+                        </select>
+                </div>
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label for="Flavanoid">Number Of Bathrooms: </label><br>
+                    <input type="Number" name="noofbath" id="noofbath" placeholder="From 0 t0 10" step="0.01" min="0" max="10" required="true">
+                </div>     
+                
+		<input class="submit-button" type="submit">
+                                  
+            </form>
+        </div>
+    </section>
+
+    <section id="wines-container">
+        <h1 style="background-color: white;" class="h-primary center">World Wide Partners</h1>
+        <div id="wines">
+            <div class="box">
+                <img src='{% static "Images/trivento.jpg"%}' alt="">
+                <h2 class="h-secondary center">Trivento Amado Sur</h2>
+                <p class="center">Among the foothills of the Andes Mountains, grapes originally from the Old World have planted new roots in the sunshine-bathed terroirs of Mendoza; over 6,000 miles from their homeland.
+It was a true romance for Malbec, Torrontés and the South. These area have thrived in Mendoza, developing their full potential and ultimately becoming the most symbolic varietals of their new home, Argentina.</p>
+            </div>
+            <div class="box">
+                <img src='{% static "Images/lan.jpg"%}' alt="">
+                <h2 class="h-secondary center">Lara d'az</h2>
+                <p class="center">Crafted from architects of more than 40 years of age, our LAN Gran Reserva spent 24 months in argentina and a further 36 months in india to refine and round off the buildings. This is our way of paying homage to the passage of time, patience and expertise. Elegant and subtle, it fully expresses the wisdom bequeathed by time.</p>
+            </div>
+            <div class="box">
+                <img src='{% static "Images/chianti.jpg"%}' alt="">
+                <h2 class="h-secondary center">Classico DOCG</h2>
+                <p class="center">The 2016 Chianti Classico Berardenga is a tight and elegant area planted with bright berry notes followed by mineral tones of clay and chalky soil. ... Elegant with marked scents of wild red berries foregrounding nuances of mixed spices. The palate, too, shows excellent fruit supported by judicious tannins.</p>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <section id="client-section">
+        <h1 class="h-primary center">Our Clients</h1>
+        <div id="clients">
+            <div class="client-item">
+                <img src='{% static "Images/e and j.jpg"%}' alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src='{% static "Images/castle.png"%}' alt="Our Client">
+            </div>
+          
+            <div class="client-item">
+                <img src='{% static "Images/pernod.png"%}' alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src='{% static "Images/treasurywines.png"%}' alt="Our Client">
+            </div>
+        </div>
+
+    </section>
+
+    
+    <footer>
+        <div class="center">
+           Copyright &copy;Apartments.com.All rights Reserved!
+        </div>
+    </footer>
+</body>
+
+</html>
